@@ -42,6 +42,8 @@ function create() {
 
     game.world.setBounds(0, 0, 6700, 600);
 
+    fbLoggedIn = false;
+
     var bolt_start = bolt.animations.add('start', [1, 2, 3, 4, 5, 6, 7], 12, true);
     var bolt_run = bolt.animations.add('run', [8, 9 , 10, 11, 12, 13, 14], 12, true);
 
@@ -81,6 +83,18 @@ function create() {
 }
 
 function update() {
+
+    if (typeof(FB) !== "undefined" && !fbLoggedIn) {
+        FB.getLoginStatus(function(response) {
+            if (response.status === 'connected') {
+                console.log('Logged in.');
+            }
+            else {
+                FB.login();
+                fbLoggedIn = true;
+            }
+        });
+    }
 
     //game.camera.x += 10;
 
