@@ -63,7 +63,7 @@ function create() {
 
     userName = game.add.text(bolt.position.x, bolt.position.y, "", {fill:"#fff"}, style);
 
-    userName.anchor.set(0.5);
+    //userName.anchor.set(0.5);
 
     timerText.fixedToCamera = true;
 
