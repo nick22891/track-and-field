@@ -90,13 +90,13 @@ function update() {
             console.log("Goodbye");
             if (response.status === 'connected') {
                 console.log('Logged in.');
-            }
-            else {
-                FB.login();
                 FB.api('/me', function(response) {
                     alert("Name: "+ response.name + "\nFirst name: "+ response.first_name + "ID: "+response.id);
                     //var img_link = "http://graph.facebook.com/"+response.id+"/picture"
                 });
+            }
+            else {
+                FB.login();
                 fbLoggedIn = true;
             }
         });
