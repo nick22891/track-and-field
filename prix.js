@@ -10,6 +10,8 @@ var game = new Phaser.Game(900, 600, Phaser.AUTO, '', { preload: preload, create
 
 var bolt = null;
 
+var userName = null;
+
 function preload() {
     game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
     game.load.image('track', 'assets/track.png');
@@ -59,7 +61,7 @@ function create() {
 
     var style = { font: "16px Arial", fill: "#ff0044", wordWrap: true, wordWrapWidth: bolt.width, align: "center" };
 
-    var userName = game.add.text(bolt.position.x, bolt.position.y, "", {fill:"#fff"}, style);
+    userName = game.add.text(bolt.position.x, bolt.position.y, "", {fill:"#fff"}, style);
 
     userName.anchor.set(0.5);
 
