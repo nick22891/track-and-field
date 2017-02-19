@@ -16,7 +16,7 @@ function preload() {
     game.load.image('finishline', 'assets/finish-line.png');
     game.load.image('backdrop', 'assets/backdrop.png');
     game.load.spritesheet('bolt', 'assets/bolt_anim.png', 173, 182);
-    game.load.spritesheet('runner1', 'assets/bolt_anim.png', 173, 182);
+    game.load.spritesheet('runner1', 'assets/girl_anim.png', 173, 182);
     game.load.spritesheet('runner2', 'assets/bolt_anim.png', 173, 182);
     cursors = game.input.keyboard.createCursorKeys();
     timerStarted = false;
@@ -29,12 +29,12 @@ function create() {
     finishline = game.add.sprite(6400, 264, 'finishline');
     finishline.scale.setTo(1,0.98);
 
+    runner2 = game.add.sprite(32, 600 - 425, 'runner2');
+    runner2.scale.setTo(0.75,0.75);
     bolt = game.add.sprite(27, 600 - 365, 'bolt');
     bolt.scale.setTo(0.75,0.75);
     runner1 = game.add.sprite(32, 600 - 300, 'runner1');
     runner1.scale.setTo(0.75,0.75);
-    runner2 = game.add.sprite(32, 600 - 425, 'runner2');
-    runner2.scale.setTo(0.75,0.75);
 
     game.physics.arcade.enable(bolt);
     game.physics.arcade.enable(runner1);
@@ -61,7 +61,7 @@ function create() {
 
     bolt_start.onComplete.add(function () {
         bolt.animations.play('run', 25, true);
-        bolt.body.velocity.x = 500;
+        bolt.body.velocity.x = 480;
     }, this);
 
     runner1_start.onComplete.add(function () {
@@ -71,7 +71,7 @@ function create() {
 
     runner2_start.onComplete.add(function () {
         runner2.animations.play('run', 25, true);
-        runner2.body.velocity.x = 445;
+        runner2.body.velocity.x = 472;
     }, this);
 
     timerText.text = timer.toFixed(2) + " s";
@@ -91,7 +91,7 @@ function update() {
     if (controller.enterKey.isDown) {
 
         bolt.animations.play('start', 18, false);
-        bolt.body.velocity.x = 500;
+        bolt.body.velocity.x = 480;
 
         setTimeout(function () {
             runner1.body.velocity.x = 480;
