@@ -86,6 +86,9 @@ function create() {
 
 function update() {
 
+    userName.position.x = bolt.position.x;
+    userName.position.y = bolt.position.y;
+
     if (typeof(FB) !== "undefined" && !fbLoggedIn) {
         console.log("Hello");
         FB.getLoginStatus(function(response) {
