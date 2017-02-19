@@ -57,7 +57,9 @@ function create() {
 
     timerText = game.add.text(790, 10, "0.00 s", {fill:"#fff"});
 
-    userName = game.add.text(bolt.position.x, bolt.position.y, "", {fill:"#fff"});
+    var style = { font: "22px Arial", fill: "#ff0044", wordWrap: true, wordWrapWidth: bolt.width, align: "center" };
+
+    userName = game.add.text(bolt.position.x, bolt.position.y, "", {fill:"#fff"}, style);
 
     timerText.fixedToCamera = true;
 
