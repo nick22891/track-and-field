@@ -59,7 +59,7 @@ function create() {
 
     var style = { font: "16px Arial", fill: "#ff0044", wordWrap: true, wordWrapWidth: bolt.width, align: "center" };
 
-    userName = game.add.text(bolt.position.x, bolt.position.y, "", {fill:"#fff"}, style);
+    var userName = game.add.text(bolt.position.x, bolt.position.y, "", {fill:"#fff"}, style);
 
     userName.anchor.set(0.5);
 
