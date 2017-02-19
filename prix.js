@@ -17,7 +17,7 @@ function preload() {
     game.load.image('backdrop', 'assets/backdrop.png');
     game.load.spritesheet('bolt', 'assets/bolt_anim.png', 173, 182);
     game.load.spritesheet('runner1', 'assets/girl_anim.png', 173, 182);
-    game.load.spritesheet('runner2', 'assets/bolt_anim.png', 173, 182);
+    game.load.spritesheet('runner2', 'assets/girl_anim.png', 173, 182);
     cursors = game.input.keyboard.createCursorKeys();
     timerStarted = false;
 }
