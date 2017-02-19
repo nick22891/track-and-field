@@ -90,7 +90,7 @@ function create() {
 
 function update() {
 
-    userName.position.x = bolt.position.x;
+    userName.position.x = bolt.position.x + (userName.width/2);
     userName.position.y = bolt.position.y;
 
     if (typeof(FB) !== "undefined" && !fbLoggedIn) {
