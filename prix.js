@@ -57,6 +57,8 @@ function create() {
 
     timerText = game.add.text(790, 10, "0.00 s", {fill:"#fff"});
 
+    userName = game.add.text(bolt.position.x, bolt.position.y, "", {fill:"#fff"});
+
     timerText.fixedToCamera = true;
 
     timer = 0.00;
@@ -92,6 +94,7 @@ function update() {
                 console.log('Logged in.');
                 FB.api('/me', function(response) {
                     console.log(response);
+                    userName.text = response.name.split(' ')[0];
                     //alert("Name: "+ response.name + "\nFirst name: "+ response.first_name + "ID: "+response.id);
                     //var img_link = "http://graph.facebook.com/"+response.id+"/picture"
                 });
