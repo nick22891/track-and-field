@@ -85,7 +85,9 @@ function create() {
 function update() {
 
     if (typeof(FB) !== "undefined" && !fbLoggedIn) {
+        console.log("Hello");
         FB.getLoginStatus(function(response) {
+            console.log("Goodbye");
             if (response.status === 'connected') {
                 console.log('Logged in.');
             }
