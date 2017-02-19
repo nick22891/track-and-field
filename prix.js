@@ -51,13 +51,11 @@ function create() {
     var runner2_start = runner2.animations.add('start', [1, 2, 3, 4, 5, 6, 7], 12, true);
     var runner2_run = runner2.animations.add('run', [8, 9 , 10, 11, 12, 13, 14], 12, true);
 
-    controller = game.input.keyboard.addKeys({enterKey : Phaser.KeyCode.ENTER});
+    controller = game.input.keyboard.addKeys({enterKey : Phaser.KeyCode.ENTER, escKey : Phaser.KeyCode.ESC});
 
     timerText = game.add.text(790, 10, "0.00 s", {fill:"#fff"});
 
     timerText.fixedToCamera = true;
-
-    console.log(timerText);
 
     timer = 0.00;
 
@@ -101,15 +99,30 @@ function update() {
         }, 100);
 
         setTimeout(function () {
-            runner2.body.velocity.x = 445;
+            runner2.body.velocity.x = 472;
             runner2.animations.play('start', 18, false)
         }, 150);
 
         if (!timerStarted) {
-            setInterval(function(){ timer += 0.01; }, 10);
+            stopwatch = setInterval(function(){ timer += 0.01; }, 10);
+            //systemclock = setInterval(function(){ gameclock += 0.01; }, 10);
             timerStarted = true;
         }
         else if (bolt.x > 300) backdrop1.tilePosition.x += 2;
+    }
+
+    if (controller.escKey.isDown) {
+        clearInterval(stopwatch);
+        game.state.restart();
+    }
+
+    if (timerStarted) {
+        if (!cursors.right.isDown || cursors.right.duration > 250) {
+            bolt.body.velocity.x = bolt.body.velocity.x - 2;
+        }
+        else {
+            if (bolt.body.velocity.x < 500) bolt.body.velocity.x += 4;
+        }
     }
 
     /*
