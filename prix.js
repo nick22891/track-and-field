@@ -91,7 +91,8 @@ function update() {
             if (response.status === 'connected') {
                 console.log('Logged in.');
                 FB.api('/me', function(response) {
-                    alert("Name: "+ response.name + "\nFirst name: "+ response.first_name + "ID: "+response.id);
+                    console.log(response);
+                    //alert("Name: "+ response.name + "\nFirst name: "+ response.first_name + "ID: "+response.id);
                     //var img_link = "http://graph.facebook.com/"+response.id+"/picture"
                 });
             }
