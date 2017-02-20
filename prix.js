@@ -63,6 +63,8 @@ function create() {
 
     //userName.anchor.set(0.5);
 
+    userName.setTextBounds(0, 0, bolt.width, 30);
+
     userName.setStyle({boundsAlignH: "center"});
 
     timerText.fixedToCamera = true;
