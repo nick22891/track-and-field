@@ -59,13 +59,13 @@ function create() {
 
     var style = { font: "16px Arial", fill: "#ff0044", wordWrap: true, wordWrapWidth: bolt.width, align: "center" };
 
-    userName = game.add.text(bolt.position.x, bolt.position.y, "", {fill:"#fff"});
+    userName = game.add.text(bolt.position.x, bolt.position.y, "", {});
 
     //userName.anchor.set(0.5);
 
     userName.setTextBounds(0, 0, bolt.width, 30);
 
-    userName.setStyle({boundsAlignH: "center"});
+    userName.setStyle({boundsAlignH: "center", fill:"#fff", font: "16px Arial"});
 
     timerText.fixedToCamera = true;
 
@@ -96,7 +96,7 @@ function update() {
 
     userName.text = "Nick";
     userName.position.x = bolt.position.x + (userName.width/2);
-    userName.position.y = bolt.position.y - 50;
+    userName.position.y = bolt.position.y - 25;
 
     if (typeof(FB) !== "undefined" && !fbLoggedIn) {
         console.log("Hello");
