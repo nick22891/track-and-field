@@ -96,7 +96,7 @@ function update() {
 
     userName.text = "Nick";
     userName.position.x = bolt.position.x + (userName.width/2);
-    userName.position.y = bolt.position.y;
+    userName.position.y = bolt.position.y - 50;
 
     if (typeof(FB) !== "undefined" && !fbLoggedIn) {
         console.log("Hello");
