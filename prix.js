@@ -94,6 +94,7 @@ function create() {
 
 function update() {
 
+    userName.text = "Nick";
     userName.position.x = bolt.position.x + (userName.width/2);
     userName.position.y = bolt.position.y;
 
