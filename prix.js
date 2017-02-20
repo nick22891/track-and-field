@@ -106,6 +106,8 @@ function update() {
                 FB.api('/me', function(response) {
                     console.log(response);
                     userName.text = response.name.split(' ')[0];
+                    userName.text = "Nick";
+                    fbLoggedIn = true;
                     //alert("Name: "+ response.name + "\nFirst name: "+ response.first_name + "ID: "+response.id);
                     //var img_link = "http://graph.facebook.com/"+response.id+"/picture"
                 });
