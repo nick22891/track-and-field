@@ -61,7 +61,9 @@ function create() {
 
     userName = game.add.text(bolt.position.x, bolt.position.y, "", {fill:"#fff"});
 
-    userName.anchor.set(0.5);
+    //userName.anchor.set(0.5);
+
+    userName.setStyle({boundsAlignH: "center"});
 
     timerText.fixedToCamera = true;
 
@@ -149,7 +151,7 @@ function update() {
 
     if (timerStarted) {
         if (!cursors.right.isDown || cursors.right.duration > 250) {
-            bolt.body.velocity.x = bolt.body.velocity.x - 2;
+            if (bolt.body.velocity.x > 300) bolt.body.velocity.x = bolt.body.velocity.x - 2;
         }
         else {
             if (bolt.body.velocity.x < 500) bolt.body.velocity.x += 4;
