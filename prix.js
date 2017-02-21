@@ -15,8 +15,8 @@ function preload() {
     game.load.image('track', 'assets/track.png');
     game.load.image('finishline', 'assets/finish-line.png');
     game.load.image('backdrop', 'assets/backdrop.png');
-    game.load.spritesheet('bolt', 'assets/bolt_anim.png', 173, 182);
-    game.load.spritesheet('runner1', 'assets/girl_anim.png', 173, 182);
+    game.load.spritesheet('bolt', 'assets/ace_anim.png', 173, 182);
+    game.load.spritesheet('runner1', 'assets/bolt_anim.png', 173, 182);
     game.load.spritesheet('runner2', 'assets/girl_anim.png', 173, 182);
     cursors = game.input.keyboard.createCursorKeys();
     timerStarted = false;
@@ -90,11 +90,13 @@ function create() {
 
     game.camera.follow(bolt);
 
+    playerNameLoaded = false;
+
 }
 
 function update() {
 
-    userName.text = "Nick";
+    //userName.text = "Nick";
     userName.position.x = bolt.position.x + (userName.width/2);
     userName.position.y = bolt.position.y - 25;
 
@@ -102,13 +104,13 @@ function update() {
         console.log("Hello");
         FB.getLoginStatus(function(response) {
             console.log("Goodbye");
-            if (response.status === 'connected') {
+            if (response.status === 'connected' && !playerNameLoaded) {
                 console.log('Logged in.');
                 FB.api('/me', function(response) {
                     console.log(response);
                     userName.text = response.name.split(' ')[0];
-                    userName.text = "Nick";
                     fbLoggedIn = true;
+                    playerNameLoaded = true;
                     //alert("Name: "+ response.name + "\nFirst name: "+ response.first_name + "ID: "+response.id);
                     //var img_link = "http://graph.facebook.com/"+response.id+"/picture"
                 });
