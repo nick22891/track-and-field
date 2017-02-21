@@ -126,6 +126,14 @@ function update() {
 
     if (bolt.x > 6400) timerStarted = false;
 
+    if (bolt.x > 6400 && fbLoggedIn) {
+        FB.ui({
+            method: 'feed',
+            link: 'https://apps.facebook.com/879387102200949/',
+            caption: 'I just got a time of ' + timerText.text + " in Digicel Grand Prix 100m!",
+        }, function(response){});
+    }
+
     if (timerStarted) timerText.text = timer.toFixed(2) + " s";
 
     if (controller.enterKey.isDown) {
