@@ -13,6 +13,8 @@ var bolt = null;
 
 var playerNameLoaded = false;
 
+var fbLoggedIn = false;
+
 function preload() {
     game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
     game.load.image('track', 'assets/track.png');
@@ -107,10 +109,10 @@ function update() {
             console.log("Goodbye");
             if (response.status === 'connected' && !playerNameLoaded) {
                 console.log('Logged in.');
+                fbLoggedIn = true;
                 FB.api('/me', function(response) {
                     console.log(response);
                     userName.text = response.name.split(' ')[0];
-                    fbLoggedIn = true;
                     playerNameLoaded = true;
                     //alert("Name: "+ response.name + "\nFirst name: "+ response.first_name + "ID: "+response.id);
                     //var img_link = "http://graph.facebook.com/"+response.id+"/picture"
