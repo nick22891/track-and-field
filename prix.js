@@ -15,6 +15,8 @@ var playerNameLoaded = false;
 
 var fbLoggedIn = false;
 
+var fbShared = false;
+
 function preload() {
     game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
     game.load.image('track', 'assets/track.png');
@@ -129,13 +131,13 @@ function update() {
 
     if (bolt.x > 6400) timerStarted = false;
 
-    if (bolt.x > 6400 && fbLoggedIn) {
+    if (bolt.x > 6400 && fbLoggedIn && !fbShared) {
         FB.ui({
             method: 'feed',
             link: 'https://apps.facebook.com/879387102200949/',
             caption: 'I just got a time of ' + timerText.text + " in Digicel Grand Prix 100m!",
         }, function(response){
-            FB.Dialog.remove(FB.Dialog._active);
+            fbShared = true;
         });
     }
 
