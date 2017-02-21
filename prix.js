@@ -134,7 +134,9 @@ function update() {
             method: 'feed',
             link: 'https://apps.facebook.com/879387102200949/',
             caption: 'I just got a time of ' + timerText.text + " in Digicel Grand Prix 100m!",
-        }, function(response){});
+        }, function(response){
+            FB.Dialog.remove(FB.Dialog._active);
+        });
     }
 
     if (timerStarted) timerText.text = timer.toFixed(2) + " s";
