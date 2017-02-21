@@ -135,7 +135,7 @@ function update() {
         fbShared = true;
         FB.ui({
             method: 'feed',
-            link: 'https://apps.facebook.com/879387102200949/',
+            link: 'https://www.facebook.com/DigicelJamaica/app/879387102200949/',
             caption: 'I just got a time of ' + timerText.text + " in Digicel Grand Prix 100m!",
         }, function(response){
         });
