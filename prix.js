@@ -131,13 +131,13 @@ function update() {
 
     if (bolt.x > 6400) timerStarted = false;
 
-    if (bolt.x > 6400 && fbLoggedIn && !fbShared) {
+    if (bolt.x > 6400 && (fbLoggedIn === true) && (fbShared === false)) {
+        fbShared = true;
         FB.ui({
             method: 'feed',
             link: 'https://apps.facebook.com/879387102200949/',
             caption: 'I just got a time of ' + timerText.text + " in Digicel Grand Prix 100m!",
         }, function(response){
-            fbShared = true;
         });
     }
 
