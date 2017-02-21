@@ -61,7 +61,7 @@ function create() {
     var runner2_start = runner2.animations.add('start', [1, 2, 3, 4, 5, 6, 7], 12, true);
     var runner2_run = runner2.animations.add('run', [8, 9 , 10, 11, 12, 13, 14], 12, true);
 
-    controller = game.input.keyboard.addKeys({enterKey : Phaser.KeyCode.ENTER, escKey : Phaser.KeyCode.ESC});
+    controller = game.input.keyboard.addKeys({enterKey : Phaser.KeyCode.ENTER, escKey : Phaser.KeyCode.ESC, HKey: Phaser.KeyCode.H});
 
     timerText = game.add.text(790, 10, "0.00 s", {fill:"#fff"});
 
@@ -144,6 +144,8 @@ function update() {
 
     if (timerStarted) timerText.text = timer.toFixed(2) + " s";
 
+    if (controller.HKey.isDown) $("a[rel='modal:open']").trigger("click");
+
     if (controller.enterKey.isDown) {
 
         bolt.animations.play('start', 18, false);
@@ -181,3 +183,7 @@ function update() {
         }
     }
 }
+
+$( document ).ready(function() {
+    $("a[rel='modal:open']").trigger("click");
+});

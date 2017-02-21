@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <link rel="stylesheet" type="text/css" href="jquery.modal.min.css"/>
 </head>
 <script src="bower_components/phaser/build/phaser.min.js"></script>
+<script src="jquery.min.js"></script>
+<script src="jquery.modal.min.js"></script>
 <script>
     window.fbAsyncInit = function() {
         FB.init({
@@ -26,6 +29,25 @@
 </script>
 
 <script src="prix.js"></script>
+
+<!-- Modal HTML embedded directly into document -->
+<div id="ex1" style="display:none;">
+    <img src="Grand-Prix-logo.png" style="width:100%;height:auto;"/>
+    <p>Welcome to Digicel's Grand Prix Challenge! Use Ace to compete in the 100 Meter Sprint (followed by 3 other events later this week) and share your best times with your friends after each race! <br><br>
+
+    <h2>INSTRUCTIONS</h2>
+
+    <p>Press <b>Enter</b> to start the race and tap the <b>right arrow key</b> to make Ace run as quickly as possible.</p>
+
+    <p>Share your best times with your friends after each race or press <b>Esc</b> to try again.</p>
+
+    <a href="#" rel="modal:close">Close</a> and press H to reopen this help screen.
+
+</div>
+
+<!-- Link to open the modal -->
+<p style="display:none;"><a href="#ex1" rel="modal:open">Open Modal</a></p>
+
 <body>
 </body>
 </html>
