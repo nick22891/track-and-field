@@ -10,6 +10,9 @@ var game = new Phaser.Game(900, 600, Phaser.AUTO, '', { preload: preload, create
 
 var bolt = null;
 
+
+var playerNameLoaded = false;
+
 function preload() {
     game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
     game.load.image('track', 'assets/track.png');
@@ -89,8 +92,6 @@ function create() {
     timerText.text = timer.toFixed(2) + " s";
 
     game.camera.follow(bolt);
-
-    playerNameLoaded = false;
 
 }
 
