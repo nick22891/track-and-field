@@ -30,6 +30,7 @@ function preload() {
 }
 
 function create() {
+    fbShared = false;
     backdrop1 = game.add.tileSprite(0, 0, 8192, 512, 'backdrop');
     racetrack = game.add.sprite(0, 255, 'track');
     racetrack.scale.setTo(8,1);
