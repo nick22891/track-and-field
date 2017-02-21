@@ -158,53 +158,10 @@ function update() {
 
     if (timerStarted) {
         if (!cursors.right.isDown || cursors.right.duration > 250) {
-            if (bolt.body.velocity.x > 300) bolt.body.velocity.x = bolt.body.velocity.x - 2;
+            if (bolt.body.velocity.x > 300) bolt.body.velocity.x = bolt.body.velocity.x - 4;
         }
         else {
             if (bolt.body.velocity.x < 500) bolt.body.velocity.x += 4;
         }
     }
-
-    /*
-     bolt.body.velocity.x = 0;
-
-     timerText.text = timer.toFixed(2) + " s";
-
-     if (controller.enterKey.isDown) {
-
-     if (!timerStarted) {
-     setInterval(function(){ timer += 0.01; }, 10);
-     timerStarted = true;
-     }
-
-     //runner1.animations.play('run', 10, true);
-     runner2.animations.play('run', 10, true);
-     runner3.animations.play('run', 10, true);
-     runner4.animations.play('run', 10, true);
-
-     //runner1.body.velocity.x = Math.floor(Math.random() * (100 - 85 + 1)) + 85;
-     runner2.body.velocity.x = Math.floor(Math.random() * (100 - 85 + 1)) + 85;
-     runner3.body.velocity.x = Math.floor(Math.random() * (100 - 85 + 1)) + 85;
-     runner4.body.velocity.x = Math.floor(Math.random() * (100 - 85 + 1)) + 85;
-     }
-
-     if (cursors.right.isDown)
-     {
-     if (bolt.scale.x < 0) bolt.scale.x *=-1;
-     //  Move to the right
-     bolt.body.velocity.x = 120;
-
-     bolt.animations.play('run');
-     }
-     else if (cursors.left.isDown)
-     {
-     if (bolt.scale.x > 0) bolt.scale.x *=-1;
-     //  Move to the right
-     //bolt.body.velocity.x = -25;
-
-     bolt.animations.play('run');
-     }
-     else bolt.animations.stop('run');
-
-     */
 }
